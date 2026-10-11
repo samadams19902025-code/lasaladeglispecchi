@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>La Sala degli Specchi | Barbara Maduli</title>
+<meta name="description" content="Il primo dono di Barbara Maduli: un esercizio di 15 minuti per vedere il tuo schema diviso in quattro pezzi, invece che sentirlo come un'onda unica. Gratis, te lo manda lei per mail.">
+<meta name="robots" content="index,follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="La Sala degli Specchi">
+<meta property="og:description" content="Hai già capito tutto. Perché non basta? Il primo dono di Evoluzione Consapevole, gratis.">
+<!-- SWAP: immagine di condivisione social 1200x630 -->
+<meta property="og:image" content="assets/og.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231a1714'/%3E%3Cpath d='M9 8h9a5 5 0 0 1 0 10H9z' fill='none' stroke='%23b07d4e' stroke-width='2.4'/%3E%3Cpath d='M9 18h6l5 7' fill='none' stroke='%23b07d4e' stroke-width='2.4'/%3E%3C/svg%3E">
+<link href="assets/fonts.css" rel="stylesheet">
+<style>
+/* ============================================================
+   SWAP ZONE - stessi token della landing del libro, cosi le due
+   pagine restano sorelle. Si cambiano qui e basta.
+   ============================================================ */
+:root{
+  --paper:      #F7F3EC;
+  --paper-2:    #FFFFFF;
+  --paper-warm: #EFE7DA;
+  --ink:        #1A1714;
+  --ink-soft:   #4A433C;
+  --muted:      #8A8077;
+  --line:       #DED5C7;
+  --accent:     #B07D4E;
+  --accent-ink: #FFFFFF;
+
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body:    'Inter', system-ui, -apple-system, sans-serif;
+
+  --radius: 14px;
+  --maxw: 1080px;
+  --ease: cubic-bezier(.22,1,.36,1);
+}
+/* Immagini da droppare in assets/ con QUESTI nomi:
+   assets/cover.png -> copertina del lead magnet (verticale 2:3, ideale 1200x1800)
+   assets/og.png    -> condivisione social 1200x630
+   Finche mancano si vede il segnaposto tratteggiato. */
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--paper); color:var(--ink-soft);
+  font-family:var(--font-body); font-size:17px; line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:""; position:fixed; inset:0; pointer-events:none; z-index:9;
+  opacity:.05; mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+::selection{background:var(--accent); color:var(--accent-ink)}
+img{max-width:100%; display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--font-display); color:var(--ink); font-weight:600; line-height:1.08; margin:0 0 .5em; letter-spacing:-.015em}
+h1{font-size:clamp(2.4rem,6.4vw,4.4rem)}
+h2{font-size:clamp(1.8rem,4vw,2.7rem)}
+h3{font-size:clamp(1.15rem,2.2vw,1.4rem); line-height:1.25}
+p{margin:0 0 1.1em}
+strong{color:var(--ink); font-weight:600}
+.wrap{max-width:var(--maxw); margin:0 auto; padding:0 22px}
+.narrow{max-width:680px; margin-left:auto; margin-right:auto}
+section{padding:clamp(64px,9vw,112px) 0}
+.alt{background:var(--paper-warm)}
+.dark{background:var(--ink); color:#C9C1B7}
+.dark h2,.dark h3{color:var(--paper)}
+.eyebrow{font-size:.76rem; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); margin:0 0 1.1rem}
+.lead{font-size:clamp(1.08rem,2vw,1.26rem); color:var(--ink-soft)}
+.kicker{font-family:var(--font-display); font-style:italic; font-size:1.15rem; color:var(--ink)}
+.mark-hl{
+  background:linear-gradient(transparent 62%, color-mix(in srgb, var(--accent) 28%, transparent) 62%);
+  -webkit-box-decoration-break:clone; box-decoration-break:clone;
+}
+
+/* HERO */
+.hero{
+  position:relative; overflow:hidden; padding-top:clamp(40px,7vw,80px);
+  background:
+    radial-gradient(900px 520px at 88% -8%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 70%),
+    radial-gradient(760px 520px at -5% 108%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 72%),
+    var(--paper);
+}
+.hero-grid{display:grid; gap:clamp(34px,5vw,60px); align-items:center}
+@media (min-width:900px){ .hero-grid{grid-template-columns:1.08fr .92fr} }
+.hero-copy h1{margin-bottom:.35em}
+.hero-sub{font-family:var(--font-display); font-style:italic; font-size:clamp(1.1rem,2.3vw,1.45rem); color:var(--ink); margin:0 0 1.2em; line-height:1.35}
+.hero-visual{order:-1}
+@media (min-width:900px){ .hero-visual{order:0} }
+.cover-stage{position:relative; display:flex; justify-content:center; padding:10px 0 24px}
+.cover{
+  position:relative; width:min(280px,66vw); aspect-ratio:2/3;
+  border-radius:4px 10px 10px 4px;
+  box-shadow:-1px 0 0 rgba(0,0,0,.08) inset, 18px 26px 60px -18px rgba(26,23,20,.45), 4px 6px 18px -8px rgba(26,23,20,.25);
+  animation:float 6s ease-in-out infinite; transform:rotate(-1.6deg);
+  background:var(--paper-2); overflow:hidden;
+}
+.cover img{width:100%; height:100%; object-fit:cover}
+.cover::after{content:""; position:absolute; inset:0 auto 0 0; width:10px; background:linear-gradient(90deg, rgba(0,0,0,.16), rgba(0,0,0,0)); pointer-events:none}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-1.6deg)}50%{transform:translateY(-14px) rotate(-1.6deg)}}
+@media (prefers-reduced-motion:reduce){ .cover{animation:none} }
+.ph{
+  position:absolute; inset:0; display:flex; flex-direction:column; gap:.5rem;
+  align-items:center; justify-content:center; text-align:center; padding:18px;
+  border:2px dashed var(--line); border-radius:inherit;
+  background:linear-gradient(160deg, var(--paper-2), var(--paper-warm));
+  color:var(--muted); font-size:.8rem; letter-spacing:.06em; text-transform:uppercase;
+}
+.ph b{display:block; font-family:var(--font-display); font-size:1.05rem; letter-spacing:0; text-transform:none; color:var(--ink)}
+.ph span{font-size:.7rem; letter-spacing:.04em; text-transform:none; max-width:22ch; line-height:1.4}
+
+/* FORM */
+.form-card{
+  background:var(--paper-2); border:1px solid var(--line); border-radius:var(--radius);
+  padding:clamp(20px,3vw,30px); box-shadow:0 18px 44px -28px rgba(26,23,20,.4);
+}
+.dark .form-card{background:rgba(255,255,255,.04); border-color:rgba(255,255,255,.14)}
+.form-promise{font-family:var(--font-display); font-size:clamp(1.08rem,2.1vw,1.32rem); color:var(--ink); margin:0 0 1rem; line-height:1.35}
+.dark .form-promise{color:var(--paper)}
+.field{margin:0 0 12px}
+.field label{display:block; font-size:.78rem; font-weight:600; letter-spacing:.04em; color:var(--muted); margin:0 0 6px}
+.field label em{font-style:normal; font-weight:400; letter-spacing:0}
+.field input{
+  width:100%; padding:14px 15px; font:inherit; color:var(--ink);
+  background:var(--paper); border:1px solid var(--line); border-radius:10px;
+  transition:border-color .25s var(--ease), box-shadow .25s var(--ease);
+}
+.dark .field input{background:rgba(255,255,255,.06); border-color:rgba(255,255,255,.18); color:var(--paper)}
+.field input:focus{outline:none; border-color:var(--accent); box-shadow:0 0 0 3px color-mix(in srgb, var(--accent) 22%, transparent)}
+.hp{position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden} /* trappola antispam: invisibile alle persone */
+.consent{display:flex; gap:10px; align-items:flex-start; font-size:.84rem; color:var(--muted); margin:14px 0 16px}
+.consent input{margin-top:3px; width:18px; height:18px; accent-color:var(--accent); flex:0 0 auto}
+.consent a{color:var(--accent); text-underline-offset:3px}
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:10px;
+  width:100%; min-height:54px; padding:16px 26px; border:0; cursor:pointer;
+  font:600 1.02rem/1 var(--font-body); letter-spacing:.01em; text-decoration:none;
+  color:var(--accent-ink); background:var(--accent); border-radius:12px;
+  box-shadow:0 10px 26px -12px color-mix(in srgb, var(--accent) 70%, transparent);
+  transition:transform .22s var(--ease), box-shadow .22s var(--ease), filter .22s var(--ease);
+}
+@media (hover:hover){ .btn:hover{transform:translateY(-2px); filter:brightness(1.06)} }
+.btn:disabled{opacity:.7; cursor:wait; transform:none}
+.reassure{font-size:.86rem; color:var(--muted); margin:14px 0 0; line-height:1.55}
+.err{color:#A6412F; font-size:.84rem; margin:8px 0 0; min-height:1.2em}
+
+/* stato "inviato" */
+.form-done{display:none; padding:6px 2px}
+.is-done .form-fields{display:none}
+.is-done .form-done{display:block}
+.form-done h3{margin-bottom:.35em}
+.form-done .to{font-size:.95rem; color:var(--ink-soft); margin:0 0 14px}
+.form-done .to b{word-break:break-all}
+.spam-box{
+  border:1px solid var(--accent); border-left:4px solid var(--accent); border-radius:10px;
+  background:color-mix(in srgb, var(--accent) 8%, var(--paper-2));
+  padding:14px 16px; font-size:.93rem; color:var(--ink);
+}
+.dark .spam-box{background:rgba(255,255,255,.06); color:var(--paper)}
+.spam-box p{margin:0 0 .5em}
+.spam-box ul{margin:0; padding-left:1.1em}
+.spam-box li{margin:.15em 0}
+.form-done .again{font-size:.84rem; color:var(--muted); margin:12px 0 0}
+.form-done .again button{background:none; border:0; padding:0; font:inherit; color:var(--accent); text-decoration:underline; text-underline-offset:3px; cursor:pointer}
+
+/* BLOCCHI */
+.scenes{list-style:none; padding:0; margin:0; display:grid; gap:14px}
+@media (min-width:720px){ .scenes{grid-template-columns:1fr 1fr} }
+.scenes li{background:var(--paper-2); border:1px solid var(--line); border-left:3px solid var(--accent); border-radius:10px; padding:16px 18px; font-size:.98rem}
+.steps{list-style:none; padding:0; margin:34px 0 0; display:grid; gap:18px}
+@media (min-width:860px){ .steps{grid-template-columns:repeat(4,1fr)} }
+.steps li{border-top:2px solid var(--accent); padding-top:14px}
+.steps .n{font-family:var(--font-display); font-size:1.6rem; color:var(--accent); line-height:1; display:block; margin-bottom:8px}
+.steps b{display:block; font-family:var(--font-display); font-size:1.12rem; color:var(--paper); margin-bottom:4px}
+.steps i{font-style:normal; font-size:.92rem; color:#B5ACA2}
+.two{display:grid; gap:20px}
+@media (min-width:760px){ .two{grid-template-columns:1fr 1fr} }
+.fitlist{list-style:none; margin:0; padding:0}
+.fitlist li{position:relative; padding:9px 0 9px 32px; border-bottom:1px solid var(--line); font-size:.98rem}
+.fitlist li:last-child{border-bottom:0}
+.fitlist li::before{content:""; position:absolute; left:4px; top:17px; width:14px; height:14px; border-radius:50%; border:2px solid var(--accent)}
+.fitlist.no li::before{border-color:var(--muted); background:linear-gradient(45deg, transparent 44%, var(--muted) 44%, var(--muted) 56%, transparent 56%)}
+.author{display:grid; gap:28px; align-items:center}
+@media (min-width:820px){ .author{grid-template-columns:230px 1fr; gap:46px} }
+.sigil{
+  width:170px; aspect-ratio:1; margin:0 auto; border-radius:50%;
+  display:grid; place-items:center; text-align:center; padding:22px; border:1px solid var(--line);
+  background:radial-gradient(circle at 30% 25%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 65%), var(--paper-2);
+}
+.sigil span{font-family:var(--font-display); font-size:.86rem; line-height:1.3; color:var(--ink)}
+.sigil b{display:block; font-size:2.6rem; color:var(--accent); line-height:1; margin-bottom:6px}
+.faq{border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line); padding:4px 0}
+.faq summary{cursor:pointer; list-style:none; padding:18px 36px 18px 0; position:relative; font-family:var(--font-display); font-size:1.06rem; color:var(--ink)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+"; position:absolute; right:6px; top:15px; font-size:1.5rem; color:var(--accent); transition:transform .3s var(--ease)}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq .a{padding:0 0 18px; font-size:.97rem; color:var(--ink-soft)}
+.final{text-align:center}
+.final .form-card{max-width:560px; margin:30px auto 0; text-align:left}
+footer{background:var(--ink); color:#8E857B; font-size:.86rem; padding:42px 0}
+footer a{color:#C9C1B7; text-decoration:none; border-bottom:1px solid rgba(255,255,255,.2)}
+footer .fwrap{display:flex; flex-wrap:wrap; gap:12px 26px; justify-content:space-between; align-items:center}
+.sticky{
+  position:fixed; left:0; right:0; bottom:0; z-index:20; padding:10px 14px calc(10px + env(safe-area-inset-bottom));
+  background:color-mix(in srgb, var(--paper) 92%, transparent); backdrop-filter:blur(10px);
+  border-top:1px solid var(--line); transform:translateY(120%); transition:transform .4s var(--ease);
+}
+.sticky.show{transform:translateY(0)}
+.sticky .btn{min-height:50px}
+@media (min-width:900px){ .sticky{display:none} }
+.rv{opacity:0; transform:translateY(22px); transition:opacity .7s var(--ease), transform .7s var(--ease)}
+.rv.in{opacity:1; transform:none}
+@media (prefers-reduced-motion:reduce){ .rv{opacity:1; transform:none; transition:none} }
+</style>
+</head>
+<body>
+
+<!-- Il form e definito una volta sola qui e clonato in hero e chiusura dallo script in fondo. -->
+<template id="form-tpl">
+  <form class="jsform" novalidate>
+    <div class="form-fields">
+      <div class="field">
+        <label>Come ti chiami</label>
+        <input name="nome" type="text" autocomplete="given-name" placeholder="Il tuo nome" required>
+      </div>
+      <div class="field">
+        <label>La tua mail <em>(il dono arriva qui)</em></label>
+        <input name="email" type="email" autocomplete="email" placeholder="nome@esempio.it" required>
+      </div>
+      <div class="field">
+        <label>Il tuo profilo Instagram <em>(facoltativo)</em></label>
+        <input name="instagram" type="text" autocomplete="off" placeholder="@tuonome">
+      </div>
+      <div class="hp" aria-hidden="true">
+        <label>Lascia vuoto<input name="sito" type="text" tabindex="-1" autocomplete="off"></label>
+      </div>
+      <label class="consent">
+        <input type="checkbox" name="consenso" required>
+        <span>Ho letto la <a href="privacy.html">privacy policy</a> e acconsento a ricevere il dono per mail.</span>
+      </label>
+      <button class="btn" type="submit">Mandamelo</button>
+      <p class="err" aria-live="polite"></p>
+      <p class="reassure">Gratis. Niente promozioni a raffica: ti scrivo quando ho qualcosa che vale, e puoi uscire quando vuoi.</p>
+    </div>
+    <div class="form-done" aria-live="polite">
+      <h3>Fatto, è partita.</h3>
+      <p class="to">Ti ho appena scritto a <b class="to-mail"></b> con il link per scaricare <em>La Sala degli Specchi</em>.</p>
+      <div class="spam-box">
+        <p><strong>Non la vedi?</strong> Prima di riprovare, cercala bene. Le mail nuove spesso finiscono nel posto sbagliato:</p>
+        <ul>
+          <li>nella cartella <strong>Spam</strong> o <strong>Posta indesiderata</strong></li>
+          <li>in Gmail, nelle schede <strong>Promozioni</strong>, <strong>Social</strong> o <strong>Aggiornamenti</strong></li>
+          <li>cerca <strong>"Sala degli Specchi"</strong> nella barra di ricerca della posta</li>
+        </ul>
+        <p style="margin:.6em 0 0">Se la trovi lì, segnala "non è spam": così le prossime arrivano dritte.</p>
+      </div>
+      <p class="again">Hai sbagliato a scrivere la mail? <button type="button" class="redo">Correggila e rimandamela</button></p>
+    </div>
+  </form>
+</template>
+
+<!-- ======================= HERO ======================= -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow">Il primo dono, gratis</p>
+      <h1>La Sala<br>degli Specchi</h1>
+      <p class="hero-sub">Vedere lo schema mentre lo stai rifacendo.</p>
+      <p class="lead">Hai già pagato per capirti. Non una volta sola, e non in un solo modo. <span class="mark-hl">Il problema non è che non hai capito. È che la settimana dopo ci ricaschi lo stesso.</span></p>
+      <p class="lead">Questo è un esercizio di quindici minuti, con carta e penna. Non ti spiega chi sei: ti fa vedere, per la prima volta, il tuo schema diviso nei suoi pezzi.</p>
+      <div class="form-card" id="form-top">
+        <p class="form-promise">Lascia nome e mail: te lo mando io, non costa niente.</p>
+        <div class="slot"></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="cover-stage">
+        <div class="cover">
+          <img src="assets/cover.png" alt="Copertina de La Sala degli Specchi" onerror="this.remove()">
+          <div class="ph"><b>Copertina</b><span>Droppa assets/cover.png (verticale 2:3)</span></div>
+        </div>
+      </div>
+      <p class="reassure" style="text-align:center">PDF, 5 pagine più il foglio di lavoro.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= RICONOSCIMENTO ======================= -->
+<section class="alt">
+  <div class="wrap">
+    <div class="narrow rv">
+      <p class="eyebrow">Hai già capito tutto</p>
+      <h2>Perché non basta?</h2>
+      <p class="lead">Hai cercato altre spiegazioni, un'altra terapia, un altro coach, un altro libro. Ognuna aveva un pezzo di ragione. Nessuna ha tenuto abbastanza a lungo.</p>
+    </div>
+    <ul class="scenes narrow rv" style="margin-top:28px">
+      <li>Un weekend intensivo, un proposito preso davvero. Hai retto, per un po'.</li>
+      <li>La rabbia con la respirazione, l'ansia con la lista, il sonno con l'app giusta. Un sintomo alla volta.</li>
+      <li>Dici "va bene" a un lavoro da quattro giorni, e poi passi il weekend a farlo.</li>
+      <li>Dici "faccio io" per non doverti fidare, finché il carico non diventa solo tuo.</li>
+    </ul>
+    <p class="narrow kicker rv" style="margin-top:26px">La scena cambia. Il meccanismo che la produce no.</p>
+  </div>
+</section>
+
+<!-- ======================= COSA FAI ======================= -->
+<section class="dark">
+  <div class="wrap">
+    <div class="narrow rv" style="text-align:center">
+      <p class="eyebrow">Cosa fai nella Sala degli Specchi</p>
+      <h2>Un'onda unica, divisa in quattro pezzi</h2>
+      <p class="lead" style="color:#B5ACA2">Prendi l'ultimo episodio in cui il tuo schema è tornato e lo scomponi per iscritto. È il primo passaggio del metodo <strong style="color:var(--paper)">Evoluzione Consapevole</strong>: smettere di chiederti "perché" e cominciare a vedere "come".</p>
+    </div>
+    <ol class="steps rv">
+      <li><span class="n">1</span><b>L'evento</b><i>I fatti, senza interpretarli.</i></li>
+      <li><span class="n">2</span><b>Il significato</b><i>Quello che gli hai attribuito, quasi senza accorgertene.</i></li>
+      <li><span class="n">3</span><b>L'emozione</b><i>Quella che il significato ha acceso.</i></li>
+      <li><span class="n">4</span><b>La reazione</b><i>Quella automatica, che non hai più bisogno di decidere.</i></li>
+    </ol>
+    <p class="narrow kicker rv" style="margin-top:34px; text-align:center; color:var(--paper)">Non ti libera dallo schema in una mossa. Ma per la prima volta lo vedi. Ed è tuo.</p>
+  </div>
+</section>
+
+<!-- ======================= PER CHI ======================= -->
+<section>
+  <div class="wrap two">
+    <div class="rv">
+      <h2>È per te se</h2>
+      <ul class="fitlist">
+        <li>Sai già dare un nome al tuo schema, e lo rifai lo stesso.</li>
+        <li>Hai già fatto percorsi, letto libri, parlato con qualcuno.</li>
+        <li>Hai quindici minuti, un foglio e la voglia di scrivere invece di leggere e basta.</li>
+      </ul>
+    </div>
+    <div class="rv">
+      <h2>Non è per te se</h2>
+      <ul class="fitlist no">
+        <li>Cerchi la bacchetta magica che risolve tutto con un colpo di spugna.</li>
+        <li>Stai attraversando qualcosa che ha bisogno di uno specialista. Un esercizio non sostituisce una terapia.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= CHI L'HA SCRITTO ======================= -->
+<section class="alt">
+  <div class="wrap author rv">
+    <div class="sigil"><span><b>EC</b>Evoluzione<br>Consapevole</span></div>
+    <div>
+      <p class="eyebrow">Chi te lo manda</p>
+      <h2>Barbara Maduli</h2>
+      <p>Ex avvocato, poi una laurea in psicologia presa per capire come funziona davvero la testa delle persone, compresa la mia.</p>
+      <p>Anche io sono caduta in questo meccanismo, tante volte. Non sentendomi all'altezza, ho speso soldi, tantissimi, per l'ennesimo libro o videocorso che non avrei nemmeno avuto il tempo di aprire. Per anni, ancora e ancora. Quello che ti mando l'ho imparato uscendo da lì.</p>
+      <p class="reassure">Non ti prometto che non ci ricascherai. Ti prometto che la prossima volta lo vedrai arrivare.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= FAQ ======================= -->
+<section>
+  <div class="wrap narrow">
+    <div class="rv" style="text-align:center">
+      <p class="eyebrow">Prima che tu lo chieda</p>
+      <h2>Tre cose chiare</h2>
+    </div>
+    <div class="faq rv" style="margin-top:28px">
+      <details open>
+        <summary>È gratis davvero?</summary>
+        <div class="a">Sì. Non c'è un passaggio dopo in cui ti chiedo la carta. È il mio modo di farmi conoscere da chi un giorno potrebbe lavorare con me. Se quel giorno non arriva, il dono resta tuo comunque.</div>
+      </details>
+      <details>
+        <summary>Perché me lo mandi per mail e non lo scarico qui?</summary>
+        <div class="a">Perché così il dono ti arriva da me, con il mio nome: se hai una domanda, rispondi a quella mail e mi trovi. Il link arriva in un minuto. Se non lo vedi, guarda nello spam, in Promozioni o cerca "Sala degli Specchi" nella posta.</div>
+      </details>
+      <details>
+        <summary>A cosa serve il profilo Instagram?</summary>
+        <div class="a">A niente di obbligatorio. Se lo lasci, posso riconoscerti quando mi scrivi lì. Se preferisci di no, lascia il campo vuoto: il dono arriva lo stesso.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= CHIUSURA ======================= -->
+<section class="dark final">
+  <div class="wrap narrow">
+    <div class="rv">
+      <h2>Te lo mando?</h2>
+      <p class="lead" style="color:#B5ACA2">Quindici minuti, un foglio, una penna. Poi decidi tu cosa farne, come dovrebbe essere ogni volta.</p>
+    </div>
+    <div class="form-card rv" id="form-finale">
+      <p class="form-promise">Lascia nome e mail: te lo mando io, non costa niente.</p>
+      <div class="slot"></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap fwrap">
+    <span>Barbara Maduli &middot; Evoluzione Consapevole</span>
+    <span>
+      <a href="privacy.html">Privacy</a> &nbsp;&middot;&nbsp;
+      <a href="https://www.instagram.com/heartandmindit" rel="noopener" target="_blank">Instagram</a>
+    </span>
+  </div>
+</footer>
+
+<div class="sticky" id="sticky">
+  <a class="btn" href="#form-finale">Mandami il dono</a>
+</div>
+
+<script src="assets/lenis.min.js"></script>
+<script>
+/* ---------- scroll liscio ---------- */
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(window.Lenis && !reduce){
+    var lenis = new Lenis({lerp:0.1, duration:1.3, smoothWheel:true});
+    function raf(t){ lenis.raf(t); requestAnimationFrame(raf); }
+    requestAnimationFrame(raf);
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){
+      a.addEventListener('click', function(e){
+        var el = document.querySelector(a.getAttribute('href'));
+        if(el){ e.preventDefault(); lenis.scrollTo(el, {offset:-20}); }
+      });
+    });
+  }
+})();
+
+/* ---------- reveal ---------- */
+(function(){
+  var items = document.querySelectorAll('.rv');
+  if(!('IntersectionObserver' in window)){ items.forEach(function(i){i.classList.add('in')}); return; }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en, i){
+      if(en.isIntersecting){ var el = en.target; setTimeout(function(){ el.classList.add('in'); }, i*90); io.unobserve(el); }
+    });
+  }, {rootMargin:'0px 0px -12% 0px', threshold:0.12});
+  items.forEach(function(i){ io.observe(i); });
+})();
+
+/* ---------- barra CTA mobile ---------- */
+(function(){
+  var bar = document.getElementById('sticky'), hero = document.querySelector('.hero');
+  if(!bar || !hero || !('IntersectionObserver' in window)) return;
+  new IntersectionObserver(function(e){ bar.classList.toggle('show', !e[0].isIntersecting); }, {threshold:0}).observe(hero);
+})();
+
+/* ---------- form ----------
+   Livello 2: il form manda i dati allo script Google di Barbara (apps_script.gs).
+   Lo script scrive la riga nel Foglio e manda la mail col link al PDF.
+   La pagina mostra "fatto" SOLO se lo script risponde ok:true.
+   Il link al PDF NON sta in questa pagina: lo conosce solo lo script.          */
+(function(){
+  var ENDPOINT = 'https://script.google.com/macros/s/AKfycbxohKzpqq_vEE6e54Zcn-lMceLqBvXHGG2iqM0UkCO1-WRvMnbxpVfFgyZHdyVPR3pkUw/exec'; /* web app Apps Script v1 (11/10). Vuoto = modalita prova, non manda niente. */
+
+  var tpl = document.getElementById('form-tpl');
+  document.querySelectorAll('.slot').forEach(function(slot){
+    slot.replaceWith(tpl.content.cloneNode(true));
+  });
+
+  var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i;
+
+  document.querySelectorAll('.jsform').forEach(function(form){
+    var err  = form.querySelector('.err');
+    var card = form.closest('.form-card');
+    var btn  = form.querySelector('.btn');
+
+    form.querySelector('.redo').addEventListener('click', function(){
+      card.classList.remove('is-done');
+      btn.disabled = false; btn.textContent = 'Mandamelo';
+      form.querySelector('input[name=email]').focus();
+    });
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      err.textContent = '';
+      var nome  = form.querySelector('input[name=nome]').value.trim();
+      var email = form.querySelector('input[name=email]').value.trim();
+      var ig    = form.querySelector('input[name=instagram]').value.trim().replace(/^@+/, '');
+      var hp    = form.querySelector('input[name=sito]').value;
+      var ok    = form.querySelector('input[name=consenso]').checked;
+
+      if(nome.length < 2){ err.textContent = 'Manca il nome.'; return; }
+      if(!EMAIL_RE.test(email)){ err.textContent = 'Controlla la mail: manca qualcosa.'; return; }
+      if(ig && !/^[a-z0-9._]{1,30}$/i.test(ig)){ err.textContent = 'Il profilo Instagram ha caratteri strani: scrivilo come @nome, oppure lascialo vuoto.'; return; }
+      if(!ok){ err.textContent = 'Serve la spunta sulla privacy, altrimenti non posso scriverti.'; return; }
+
+      btn.disabled = true; btn.textContent = 'Te la sto mandando...';
+
+      var done = function(){
+        form.querySelector('.to-mail').textContent = email;
+        card.classList.add('is-done');
+      };
+      var fail = function(msg){
+        btn.disabled = false; btn.textContent = 'Mandamelo';
+        err.textContent = msg || 'Qualcosa non ha funzionato. Riprova tra un minuto.';
+      };
+
+      if(!ENDPOINT){ setTimeout(done, 700); return; } /* modalita prova */
+
+      /* text/plain evita il preflight CORS: Apps Script non lo gestisce. */
+      fetch(ENDPOINT, {
+        method:'POST',
+        headers:{'Content-Type':'text/plain;charset=utf-8'},
+        body: JSON.stringify({nome:nome, email:email, instagram:ig, sito:hp, consenso:ok, pagina:location.href})
+      })
+      .then(function(r){ return r.json(); })
+      .then(function(res){
+        if(res && res.ok){ done(); }
+        else if(res && res.error === 'email'){ fail('Questa mail non sembra valida. Controlla come l\'hai scritta.'); }
+        else { fail(); }
+      })
+      .catch(function(){ fail(); });
+    });
+  });
+})();
+</script>
+</body>
+</html>
