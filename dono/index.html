@@ -447,24 +447,7 @@ footer .fwrap{display:flex; flex-wrap:wrap; gap:12px 26px; justify-content:space
   <a class="btn" href="#form-finale">Mandamelo</a>
 </div>
 
-<script src="assets/lenis.min.js"></script>
 <script>
-/* ---------- scroll liscio ---------- */
-(function(){
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(window.Lenis && !reduce){
-    var lenis = new Lenis({lerp:0.1, duration:1.3, smoothWheel:true});
-    function raf(t){ lenis.raf(t); requestAnimationFrame(raf); }
-    requestAnimationFrame(raf);
-    document.querySelectorAll('a[href^="#"]').forEach(function(a){
-      a.addEventListener('click', function(e){
-        var el = document.querySelector(a.getAttribute('href'));
-        if(el){ e.preventDefault(); lenis.scrollTo(el, {offset:-20}); }
-      });
-    });
-  }
-})();
-
 /* ---------- reveal ---------- */
 (function(){
   var items = document.querySelectorAll('.rv');
