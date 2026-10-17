@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rompere lo Schema | Barbara Maduli</title>
+<meta name="description" content="Rompere lo Schema, il libro per chi ha già capito tutto di sé e ci ricasca lo stesso. Quasi pronto.">
+<!-- Pagina PROVVISORIA (17/10/2026): il link sta già nel PDF della Sala degli Specchi.
+     Togliere noindex quando arriva la landing vera del libro. -->
+<meta name="robots" content="noindex,follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Rompere lo Schema">
+<meta property="og:description" content="Il libro per chi ha già capito tutto di sé e ci ricasca lo stesso. Quasi pronto.">
+<meta property="og:url" content="https://heartandmind.it/libro/">
+<meta property="og:locale" content="it_IT">
+<meta property="og:image" content="https://heartandmind.it/dono/assets/og.png">
+<link rel="canonical" href="https://heartandmind.it/libro/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%234c0005'/%3E%3Cpath d='M9 8h9a5 5 0 0 1 0 10H9z' fill='none' stroke='%23ffffff' stroke-width='2.4'/%3E%3Cpath d='M9 18h6l5 7' fill='none' stroke='%23ffffff' stroke-width='2.4'/%3E%3C/svg%3E">
+<link href="../dono/assets/fonts.css" rel="stylesheet">
+<style>
+/* stessi token di /dono/: le pagine restano sorelle */
+:root{
+  --paper:      #FAF6F3;
+  --paper-2:    #FFFFFF;
+  --paper-warm: #F3E8E5;
+  --ink:        #2A1416;
+  --ink-soft:   #5A4446;
+  --muted:      #7A6567;
+  --line:       #E6D6D3;
+  --accent:     #7A1A22;
+  --brand:      #4C0005;
+  --accent-ink: #FFFFFF;
+
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body:    'Inter', system-ui, -apple-system, sans-serif;
+
+  --radius: 14px;
+  --ease: cubic-bezier(.22,1,.36,1);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; min-height:100vh; display:flex; flex-direction:column;
+  color:var(--ink-soft); font-family:var(--font-body); font-size:17px; line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  background:
+    radial-gradient(900px 520px at 88% -8%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 70%),
+    radial-gradient(760px 520px at -5% 108%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 72%),
+    var(--paper);
+}
+body::before{
+  content:""; position:fixed; inset:0; pointer-events:none; z-index:9;
+  opacity:.05; mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+::selection{background:var(--accent); color:var(--accent-ink)}
+a{color:inherit}
+main{flex:1; display:flex; align-items:center; padding:clamp(56px,10vw,120px) 0}
+.wrap{width:100%; max-width:680px; margin:0 auto; padding:0 22px}
+.eyebrow{font-size:.76rem; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); margin:0 0 1.1rem}
+h1{font-family:var(--font-display); color:var(--ink); font-weight:600; line-height:1.08; letter-spacing:-.015em; font-size:clamp(2.1rem,5.4vw,3.4rem); margin:0 0 .45em}
+h1 .h1-2{color:var(--accent)}
+.lead{font-size:clamp(1.08rem,2vw,1.22rem); margin:0 0 1.8em}
+.card{
+  background:var(--paper-2); border:1px solid var(--line); border-radius:var(--radius);
+  padding:clamp(22px,4vw,34px); box-shadow:0 18px 44px -28px rgba(26,23,20,.4); margin:0 0 2rem;
+}
+.card h2{font-family:var(--font-display); font-style:italic; font-weight:400; color:var(--ink); font-size:1.2rem; margin:0 0 1rem}
+.card ol{margin:0; padding:0; list-style:none; counter-reset:n; display:grid; gap:14px}
+.card li{counter-increment:n; display:grid; grid-template-columns:2rem 1fr; align-items:baseline; color:var(--ink)}
+.card li::before{content:counter(n); font-family:var(--font-display); color:var(--accent); font-size:1.15rem}
+.next p{margin:0 0 1rem}
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; min-height:48px; padding:14px 28px;
+  background:var(--accent); color:var(--accent-ink); text-decoration:none; border-radius:6px;
+  text-transform:uppercase; letter-spacing:.08em; font-weight:800; font-size:.86rem;
+  box-shadow:0 12px 24px -10px color-mix(in srgb, var(--accent) 75%, transparent);
+  transition:transform .3s var(--ease), background .3s var(--ease);
+}
+.btn:hover{background:var(--brand); transform:translateY(-2px)}
+.btn:focus-visible{outline:2px solid var(--ink); outline-offset:3px}
+@media (max-width:560px){ .btn{width:100%} }
+.aside{font-size:.95rem; color:var(--muted); margin-top:1.6rem}
+.aside a{color:var(--accent); font-weight:600}
+footer{border-top:1px solid var(--line); padding:22px 0; font-size:.82rem; color:var(--muted)}
+.fwrap{max-width:1080px; display:flex; flex-wrap:wrap; gap:8px 20px; justify-content:space-between}
+footer a{text-decoration:none}
+footer a:hover{color:var(--accent)}
+</style>
+</head>
+<body>
+
+<main>
+  <div class="wrap">
+    <p class="eyebrow">Rompere lo Schema</p>
+    <h1>Il libro è quasi pronto.<br><span class="h1-2">Mancano le ultime pagine.</span></h1>
+    <p class="lead">Se sei arrivata qui dalla Sala degli Specchi, hai già visto lo schema che ripeti. Il libro riparte da lì, e te lo mando io appena è finito.</p>
+
+    <div class="card">
+      <h2>Cosa trovi dentro</h2>
+      <ol>
+        <li>Separare il fatto dal racconto che ti sei fatta da sola.</li>
+        <li>Incontrare la parte di te che ti protegge ripetendo.</li>
+        <li>Arrivare al gesto che rompe davvero la sequenza.</li>
+      </ol>
+    </div>
+
+    <div class="next">
+      <p>Il giorno in cui esce lo annuncio su Instagram. Seguimi lì per non perderlo.</p>
+      <a class="btn" href="https://www.instagram.com/heartandmindit" rel="noopener" target="_blank">Seguimi su Instagram</a>
+    </div>
+
+    <p class="aside">Non hai ancora fatto l'esercizio? <a href="/dono/">Parti dalla Sala degli Specchi</a>.</p>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap fwrap">
+    <span>Barbara Maduli &middot; Evoluzione Consapevole</span>
+    <span>
+      <a href="/dono/privacy.html">Privacy</a> &nbsp;&middot;&nbsp;
+      <a href="https://www.instagram.com/heartandmindit" rel="noopener" target="_blank">Instagram</a>
+    </span>
+  </div>
+</footer>
+
+</body>
+</html>
